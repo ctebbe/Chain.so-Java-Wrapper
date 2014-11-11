@@ -1,7 +1,6 @@
 package so.chain;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.*;
 import org.apache.commons.io.IOUtils;
 import so.chain.entity.AddressBalance;
 import so.chain.entity.Network;
@@ -37,12 +36,23 @@ public class SoChainImpl {
             url = new URL(
                     baseApiURL+
                     "/get_address_balance/"+
-                    URLEncoder.encode(network.toString()+"/", "UTF-8")+
+                    URLEncoder.encode(network.toString(), "UTF-8")+"/"+
                     URLEncoder.encode(address, "UTF-8"));
             System.out.println(url.toString());
             System.out.println("https://chain.so/api/v2/get_address_balance/DOGE/DQkoCN263PMgemwmHH2UR8kMDRqMexJ2sk");
+
             InputStream is = url.openStream();
-            addressBalance = gson.fromJson(new InputStreamReader(is, "UTF-8"), AddressBalance.class);
+            StringWriter writer = new StringWriter();
+            IOUtils.copy(is,writer,"UTF-8");
+            System.out.println(writer.toString());
+
+            JsonParser parser = new JsonParser();
+            JsonElement element = parser.parse(writer.toString());
+            if(element.isJsonObject()) {
+                JsonObject jo = element.getAsJsonObject();
+                addressBalance = gson.fromJson(jo.get("data"), AddressBalance.class);
+            }
+
             //addressBalance = gson.fromJson(readUrl(url), AddressBalance.class);
         } catch (MalformedURLException e) { e.printStackTrace(); }
         return addressBalance;
