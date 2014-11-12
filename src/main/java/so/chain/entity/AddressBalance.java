@@ -1,15 +1,18 @@
 package so.chain.entity;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * @author ct.
  */
 public class AddressBalance {
 
     private Network network;
-    private String
-            address,
-            confirmed_balance,
-            unconfirmed_balance;
+    private String address;
+    @SerializedName("confirmed_balance")
+    private String confirmedBalance;
+    @SerializedName("unconfirmed_balance")
+    private String unconfirmedBalance;
 
     public Network getNetwork() {
         return network;
@@ -27,19 +30,19 @@ public class AddressBalance {
         this.address = address;
     }
 
-    public String getConfirmed_balance() {
-        return confirmed_balance;
+    public String getConfirmedBalance() {
+        return confirmedBalance;
     }
 
-    public void setConfirmed_balance(String confirmed_balance) {
-        this.confirmed_balance = confirmed_balance;
+    public void setConfirmedBalance(String confirmedBalance) {
+        this.confirmedBalance = confirmedBalance;
     }
 
-    public String getUnconfirmed_balance() {
-        return unconfirmed_balance;
+    public String getUnconfirmedBalance() {
+        return unconfirmedBalance;
     }
 
-    public void setUnconfirmed_balance(String unconfirmed_balance) {
-        this.unconfirmed_balance = unconfirmed_balance;
+    public void setUnconfirmedBalance(String unconfirmedBalance) {
+        this.unconfirmedBalance = unconfirmedBalance;
     }
 }
