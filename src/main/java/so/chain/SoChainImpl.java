@@ -1,8 +1,8 @@
 package so.chain;
 
 import com.google.gson.*;
-import so.chain.entity.AddressBalance;
-import so.chain.entity.Network;
+
+import so.chain.entity.*;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -37,6 +37,34 @@ public class SoChainImpl {
             addressBalance = gson.fromJson(getJsonFromUrl(url), AddressBalance.class);
         } catch (MalformedURLException e) { e.printStackTrace(); }
         return addressBalance;
+    }
+    
+    public AddressReceived getAddressReceived(Network network, String address) throws IOException {
+        URL url=null;
+        AddressReceived addressReceived=null;
+        try {
+            url = new URL(
+                    baseApiURL+
+                    "/get_address_received/"+
+                    URLEncoder.encode(network.toString(), "UTF-8")+"/"+
+                    URLEncoder.encode(address, "UTF-8"));
+            addressReceived = gson.fromJson(getJsonFromUrl(url), AddressReceived.class);
+        } catch (MalformedURLException e) { e.printStackTrace(); }
+        return addressReceived;
+    }
+    
+    public AddressSpent getAddressSpent(Network network, String address) throws IOException {
+        URL url=null;
+        AddressSpent addressSpent=null;
+        try {
+            url = new URL(
+                    baseApiURL+
+                    "/get_address_spent/"+
+                    URLEncoder.encode(network.toString(), "UTF-8")+"/"+
+                    URLEncoder.encode(address, "UTF-8"));
+            addressSpent = gson.fromJson(getJsonFromUrl(url), AddressSpent.class);
+        } catch (MalformedURLException e) { e.printStackTrace(); }
+        return addressSpent;
     }
 
     private static JsonParser jsonParser = new JsonParser();
