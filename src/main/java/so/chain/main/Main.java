@@ -21,6 +21,8 @@ public class Main {
         System.out.println(sc.getAddressReceived(Network.BTC, "18WBAGheW4qQm8E81CF7Na6XeGqDmNcn4T").getConfirmedReceivedValue());
         System.out.println(sc.getAddressReceived(Network.BTC, "18WBAGheW4qQm8E81CF7Na6XeGqDmNcn4T").getUnconfirmedReceivedValue());
         System.out.println(sc.getAddressSpent(Network.BTC, "1EaMTTuazCANnyhTpwnraQnh57qa8GRbYi").getConfirmedSentValue());
+        System.out.println(sc.getAddressValid(Network.BTC, "1EaMTTuazCANnyhTpwnraQnh57qa8GRbYi").isValid());
+        System.out.println(sc.getAddressValid(Network.BTC, "1EaMTTuazCANnyhTpwnraQnh57qa8GYi").isValid());
         System.out.println(sc.getAddressBalance(Network.DOGE, "DMSDtPsuirxGBknp7yamjHfFcmASfRBA9h").getConfirmedBalance());
         System.out.println(sc.getAddressBalance(Network.DOGE, "DTQ3wJzdJguepdXHcitzxCcutNCeBZ3fg8").getConfirmedBalance());
         System.out.println(sc.getAddressBalance(Network.DOGE, "DEsmd5DyCVsaRU38hHEpaZbtydeC5PEHRf").getConfirmedBalance());

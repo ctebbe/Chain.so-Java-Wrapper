@@ -66,6 +66,20 @@ public class SoChainImpl {
         } catch (MalformedURLException e) { e.printStackTrace(); }
         return addressSpent;
     }
+    
+    public AddressValid getAddressValid(Network network, String address) throws IOException {
+        URL url=null;
+        AddressValid addressValid=null;
+        try {
+            url = new URL(
+                    baseApiURL+
+                    "/is_address_valid/"+
+                    URLEncoder.encode(network.toString(), "UTF-8")+"/"+
+                    URLEncoder.encode(address, "UTF-8"));
+            addressValid = gson.fromJson(getJsonFromUrl(url), AddressValid.class);
+        } catch (MalformedURLException e) { e.printStackTrace(); }
+        return addressValid;
+    }
 
     private static JsonParser jsonParser = new JsonParser();
     private static String getJsonFromUrl(URL url) throws IOException {
