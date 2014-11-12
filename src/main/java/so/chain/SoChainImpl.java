@@ -80,6 +80,20 @@ public class SoChainImpl {
         } catch (MalformedURLException e) { e.printStackTrace(); }
         return addressValid;
     }
+    
+    public Address getAddress(Network network, String address) throws IOException {
+        URL url=null;
+        Address addressObj=null;
+        try {
+            url = new URL(
+                    baseApiURL+
+                    "/address/"+
+                    URLEncoder.encode(network.toString(), "UTF-8")+"/"+
+                    URLEncoder.encode(address, "UTF-8"));
+            addressObj = gson.fromJson(getJsonFromUrl(url), Address.class);
+        } catch (MalformedURLException e) { e.printStackTrace(); }
+        return addressObj;
+    }
 
     private static JsonParser jsonParser = new JsonParser();
     private static String getJsonFromUrl(URL url) throws IOException {

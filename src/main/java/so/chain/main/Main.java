@@ -2,8 +2,10 @@ package so.chain.main;
 
 import so.chain.SoChainImpl;
 import so.chain.entity.Network;
+import so.chain.entity.Transaction;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @author ct.
@@ -23,6 +25,12 @@ public class Main {
         System.out.println(sc.getAddressSpent(Network.BTC, "1EaMTTuazCANnyhTpwnraQnh57qa8GRbYi").getConfirmedSentValue());
         System.out.println(sc.getAddressValid(Network.BTC, "1EaMTTuazCANnyhTpwnraQnh57qa8GRbYi").isValid());
         System.out.println(sc.getAddressValid(Network.BTC, "1EaMTTuazCANnyhTpwnraQnh57qa8GYi").isValid());
+        System.out.println(sc.getAddress(Network.BTC, "1BZtK1FWw2nF5mm6mFYXvbZ2z98XbPq2Lw").getTotalTransactions());
+        ArrayList<Transaction> Btrans = sc.getAddress(Network.BTC, "1BZtK1FWw2nF5mm6mFYXvbZ2z98XbPq2Lw").getTxs();
+        System.out.println("1BZtK1FWw2nF5mm6mFYXvbZ2z98XbPq2Lw trans:");
+        for (int i = 0; i < Btrans.size(); i++) {
+			System.out.println(Btrans.get(i));
+		}
         System.out.println(sc.getAddressBalance(Network.DOGE, "DMSDtPsuirxGBknp7yamjHfFcmASfRBA9h").getConfirmedBalance());
         System.out.println(sc.getAddressBalance(Network.DOGE, "DTQ3wJzdJguepdXHcitzxCcutNCeBZ3fg8").getConfirmedBalance());
         System.out.println(sc.getAddressBalance(Network.DOGE, "DEsmd5DyCVsaRU38hHEpaZbtydeC5PEHRf").getConfirmedBalance());
