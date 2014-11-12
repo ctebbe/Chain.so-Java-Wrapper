@@ -94,6 +94,33 @@ public class SoChainImpl {
         } catch (MalformedURLException e) { e.printStackTrace(); }
         return addressObj;
     }
+    
+    public PriceQuery getPrice(Network network, Currency currency) throws IOException {
+        URL url=null;
+        PriceQuery priceQuery=null;
+        try {
+            url = new URL(
+                    baseApiURL+
+                    "/get_price/"+
+                    URLEncoder.encode(network.toString(), "UTF-8")+"/"+
+                    URLEncoder.encode(currency.toString(), "UTF-8"));
+            priceQuery = gson.fromJson(getJsonFromUrl(url), PriceQuery.class);
+        } catch (MalformedURLException e) { e.printStackTrace(); }
+        return priceQuery;
+    }
+    
+    public NetworkInfo getNetworkInfo(Network network) throws IOException {
+        URL url=null;
+        NetworkInfo networkInfo=null;
+        try {
+            url = new URL(
+                    baseApiURL+
+                    "/get_info/"+
+                    URLEncoder.encode(network.toString(), "UTF-8"));
+            networkInfo = gson.fromJson(getJsonFromUrl(url), NetworkInfo.class);
+        } catch (MalformedURLException e) { e.printStackTrace(); }
+        return networkInfo;
+    }
 
     private static JsonParser jsonParser = new JsonParser();
     private static String getJsonFromUrl(URL url) throws IOException {

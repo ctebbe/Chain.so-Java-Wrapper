@@ -1,6 +1,7 @@
 package so.chain.main;
 
 import so.chain.SoChainImpl;
+import so.chain.entity.Currency;
 import so.chain.entity.Network;
 import so.chain.entity.Transaction;
 
@@ -31,6 +32,9 @@ public class Main {
         for (int i = 0; i < Btrans.size(); i++) {
 			System.out.println(Btrans.get(i));
 		}
+        System.out.println(sc.getPrice(Network.DOGE, Currency.USD).toString());
+        System.out.println(sc.getPrice(Network.BTC, Currency.USD).toString());
+        System.out.println(sc.getNetworkInfo(Network.BTC).toString());
         System.out.println(sc.getAddressBalance(Network.DOGE, "DMSDtPsuirxGBknp7yamjHfFcmASfRBA9h").getConfirmedBalance());
         System.out.println(sc.getAddressBalance(Network.DOGE, "DTQ3wJzdJguepdXHcitzxCcutNCeBZ3fg8").getConfirmedBalance());
         System.out.println(sc.getAddressBalance(Network.DOGE, "DEsmd5DyCVsaRU38hHEpaZbtydeC5PEHRf").getConfirmedBalance());
