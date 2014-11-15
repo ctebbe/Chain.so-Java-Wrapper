@@ -1,5 +1,6 @@
 package so.chain.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.google.gson.annotations.SerializedName;
@@ -8,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Holds the data from the Chain.so Get Display Data query.
  * @author chpwssn
  */
-public class Address {
+public class Address implements Serializable {
 
     private Network network;
     private String address;

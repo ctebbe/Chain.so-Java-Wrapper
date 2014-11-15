@@ -1,5 +1,6 @@
 package so.chain.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.google.gson.annotations.SerializedName;
@@ -8,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Holds incoming transaction data.
  * @author chpwssn
  */
-public class OutgoingTX {
+public class OutgoingTX implements Serializable {
 
     private String value;
 

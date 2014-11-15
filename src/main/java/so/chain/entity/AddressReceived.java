@@ -2,10 +2,12 @@ package so.chain.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * @author chpwssn
  */
-public class AddressReceived {
+public class AddressReceived implements Serializable {
 
     private Network network;
     private String address;

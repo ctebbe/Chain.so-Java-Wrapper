@@ -2,11 +2,13 @@ package so.chain.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Holds the data from the Chain.so Is Address Valid? query.
  * @author chpwssn
  */
-public class AddressValid {
+public class AddressValid implements Serializable {
 
     private Network network;
     private String address;

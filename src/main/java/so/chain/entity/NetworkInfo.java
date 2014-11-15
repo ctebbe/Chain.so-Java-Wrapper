@@ -1,5 +1,6 @@
 package so.chain.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.google.gson.annotations.SerializedName;
@@ -8,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Holds data from the Get Network Info Chain.so API query.
  * @author chpwssn.
  */
-public class NetworkInfo {
+public class NetworkInfo implements Serializable {
 
     private String name;
     private String acronym;

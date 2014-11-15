@@ -2,12 +2,14 @@ package so.chain.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Holds the address Spent/Sent data. Chain.so refers to this data as Get Spent Value but the response states
  * Sent value, therefore the getters and setters are sent, class is Spent.
  * @author chpwssn
  */
-public class AddressSpent {
+public class AddressSpent implements Serializable {
 
     private Network network;
     private String address;
