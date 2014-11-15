@@ -1,9 +1,5 @@
 package so.chain.entity;
 
-import java.util.ArrayList;
-
-import com.google.gson.annotations.SerializedName;
-
 /**
  * Holds incoming transaction data.
  * @author chpwssn
@@ -11,6 +7,14 @@ import com.google.gson.annotations.SerializedName;
 public class OutgoingTX {
 
     private String value;
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
 	@Override
 	public String toString() {

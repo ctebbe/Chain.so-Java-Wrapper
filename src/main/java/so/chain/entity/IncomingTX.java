@@ -1,7 +1,5 @@
 package so.chain.entity;
 
-import java.util.ArrayList;
-
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -18,6 +16,47 @@ public class IncomingTX {
     private String scriptHex;
     @SerializedName("req_sigs")
     private int reqSigs;
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public int getOutputNo() {
+        return outputNo;
+    }
+
+    public void setOutputNo(int outputNo) {
+        this.outputNo = outputNo;
+    }
+
+    public String getScriptASM() {
+        return scriptASM;
+    }
+
+    public void setScriptASM(String scriptASM) {
+        this.scriptASM = scriptASM;
+    }
+
+    public String getScriptHex() {
+        return scriptHex;
+    }
+
+    public void setScriptHex(String scriptHex) {
+        this.scriptHex = scriptHex;
+    }
+
+    public int getReqSigs() {
+        return reqSigs;
+    }
+
+    public void setReqSigs(int reqSigs) {
+        this.reqSigs = reqSigs;
+    }
+
     private String value;
 	@Override
 	public String toString() {
