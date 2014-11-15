@@ -1,5 +1,6 @@
 package so.chain.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.google.gson.annotations.SerializedName;
@@ -8,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Holds the data from the Chain.so Get Display Data query.
  * @author chpwssn
  */
-public class Address {
+public class Address implements Serializable {
 
     private Network network;
     private String address;
@@ -18,8 +19,8 @@ public class Address {
     private String pendingValue;
     @SerializedName("total_txs")
     private int totalTransactions;
-    ArrayList<Transaction> txs;
-    
+    private ArrayList<Transaction> txs;
+
 	public Network getNetwork() {
 		return network;
 	}
@@ -57,6 +58,23 @@ public class Address {
 		this.txs = txs;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
 
+		Address address1 = (Address) o;
 
+		if (!address.equals(address1.address)) return false;
+		if (network != address1.network) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = network.hashCode();
+		result = 31 * result + address.hashCode();
+		return result;
+	}
 }

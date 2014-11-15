@@ -1,5 +1,6 @@
 package so.chain.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.google.gson.annotations.SerializedName;
@@ -8,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * Holds price from individual exchanges.
  * @author chpwssn.
  */
-public class Price {
+public class Price implements Serializable {
 
     private String price;
     @SerializedName("price_base")

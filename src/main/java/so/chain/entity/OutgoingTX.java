@@ -1,10 +1,12 @@
 package so.chain.entity;
 
+import java.io.Serializable;
+
 /**
  * Holds incoming transaction data.
  * @author chpwssn
  */
-public class OutgoingTX {
+public class OutgoingTX implements Serializable {
 
     private String value;
 

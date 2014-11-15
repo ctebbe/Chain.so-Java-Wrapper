@@ -1,12 +1,13 @@
 package so.chain.entity;
 
 import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
 
 /**
  * Holds incoming transaction data.
  * @author chpwssn
  */
-public class IncomingTX {
+public class IncomingTX implements Serializable {
 
     @SerializedName("output_no")
     private int outputNo;

@@ -2,10 +2,12 @@ package so.chain.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * @author ct.
  */
-public class AddressBalance {
+public class AddressBalance implements Serializable {
 
     private Network network;
     private String address;
