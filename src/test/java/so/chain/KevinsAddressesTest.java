@@ -2,6 +2,7 @@ package so.chain;
 
 import org.junit.Test;
 import so.chain.entity.*;
+import so.chain.impl.SoChainImpl;
 
 import java.io.IOException;
 import java.util.ArrayList;
