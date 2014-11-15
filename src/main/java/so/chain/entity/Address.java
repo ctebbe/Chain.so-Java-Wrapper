@@ -18,8 +18,8 @@ public class Address {
     private String pendingValue;
     @SerializedName("total_txs")
     private int totalTransactions;
-    ArrayList<Transaction> txs;
-    
+    private ArrayList<Transaction> txs;
+
 	public Network getNetwork() {
 		return network;
 	}
@@ -57,6 +57,23 @@ public class Address {
 		this.txs = txs;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
 
+		Address address1 = (Address) o;
 
+		if (!address.equals(address1.address)) return false;
+		if (network != address1.network) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = network.hashCode();
+		result = 31 * result + address.hashCode();
+		return result;
+	}
 }
