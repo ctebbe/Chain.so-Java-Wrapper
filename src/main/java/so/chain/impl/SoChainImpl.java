@@ -1,7 +1,8 @@
-package so.chain;
+package so.chain.impl;
 
 import com.google.gson.*;
 
+import so.chain.SoChain;
 import so.chain.entity.*;
 
 import java.io.IOException;
@@ -13,7 +14,7 @@ import java.net.URLEncoder;
 /**
  * @author ct.
  */
-public class SoChainImpl {
+public class SoChainImpl implements SoChain {
 
     private static final String baseApiURL = "https://chain.so/api/v2";
     private static final Gson gson = new GsonBuilder().create();
@@ -25,6 +26,7 @@ public class SoChainImpl {
     }
     private SoChainImpl() { }
 
+    @Override
     public AddressBalance getAddressBalance(Network network, String address) throws IOException {
         URL url=null;
         AddressBalance addressBalance=null;
@@ -39,6 +41,7 @@ public class SoChainImpl {
         return addressBalance;
     }
     
+    @Override
     public AddressReceived getAddressReceived(Network network, String address) throws IOException {
         URL url=null;
         AddressReceived addressReceived=null;
@@ -53,6 +56,7 @@ public class SoChainImpl {
         return addressReceived;
     }
     
+    @Override
     public AddressSpent getAddressSpent(Network network, String address) throws IOException {
         URL url=null;
         AddressSpent addressSpent=null;
@@ -67,6 +71,7 @@ public class SoChainImpl {
         return addressSpent;
     }
     
+    @Override
     public AddressValid getAddressValid(Network network, String address) throws IOException {
         URL url=null;
         AddressValid addressValid=null;
@@ -81,6 +86,7 @@ public class SoChainImpl {
         return addressValid;
     }
     
+    @Override
     public Address getAddress(Network network, String address) throws IOException {
         URL url=null;
         Address addressObj=null;
@@ -95,6 +101,7 @@ public class SoChainImpl {
         return addressObj;
     }
     
+    @Override
     public PriceQuery getPrice(Network network, Currency currency) throws IOException {
         URL url=null;
         PriceQuery priceQuery=null;
@@ -109,6 +116,7 @@ public class SoChainImpl {
         return priceQuery;
     }
     
+    @Override
     public NetworkInfo getNetworkInfo(Network network) throws IOException {
         URL url=null;
         NetworkInfo networkInfo=null;

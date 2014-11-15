@@ -1,6 +1,6 @@
 package so.chain.main;
 
-import so.chain.SoChainImpl;
+import so.chain.impl.SoChainImpl;
 import so.chain.entity.Currency;
 import so.chain.entity.Network;
 import so.chain.entity.Transaction;
